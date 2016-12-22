@@ -1,0 +1,34 @@
+<div ng-if="ctrl.foundItems.length > 0" class="row">
+    <div class="col-xs-12">
+        <h2>Found Items:</h2>
+        <table class="table table-hover">
+        <tr>
+            <th>ID</th>
+            <th>Short Name</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th></th>
+        </tr>
+        <tr ng-repeat="item in ctrl.foundItems">
+            <td>{{ item.id }}</td>
+            <td>{{ item.short_name }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.description }}</td>
+            <td>
+                <button class="btn btn-primary btn-sm" aria-label="Remove"
+                    ng-click="ctrl.onRemove({ index: $index})">
+                    <span class="small">Don't want this one!</span>
+                </button>
+            </td>
+        </tr>
+        </table>
+    </div>
+</div>
+
+<div ng-if="ctrl.foundItems.length === 0" class="row">
+    <div class="col-xs-12">
+        <p class="message bg-danger">
+            Nothing found!
+        </p>
+    </div>
+</div>
